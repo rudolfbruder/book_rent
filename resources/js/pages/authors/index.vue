@@ -1,5 +1,10 @@
 <template>
   <div>
+    <div class="mb-2">
+      <router-link to="/authors/create" class="btn btn-success"
+        >Create</router-link
+      >
+    </div>
     <datatable
       :data="authors"
       :columns="headers"

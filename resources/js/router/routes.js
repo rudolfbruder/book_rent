@@ -69,5 +69,15 @@ export default [
     name: "authors.index",
     component: page("authors/index.vue"),
   },
+  {
+    path: "/authors/create",
+    name: "authors.create",
+    component: page("authors/create.vue"),
+  },
+  {
+    path: "/authors/edit/:book",
+    name: "authors.edit",
+    component: page("authors/edit.vue"),
+  },
   { path: "*", component: page("errors/404.vue") },
 ];
