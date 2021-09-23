@@ -75,7 +75,7 @@ export default [
     component: page("authors/create.vue"),
   },
   {
-    path: "/authors/edit/:book",
+    path: "/authors/edit/:author",
     name: "authors.edit",
     component: page("authors/edit.vue"),
   },

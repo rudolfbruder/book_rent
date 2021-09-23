@@ -40,6 +40,9 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::get('authors-for-select', [AuthorController::class, 'indexForSelect']);
     Route::get('authors', [AuthorController::class, 'index']);
+    Route::get('authors/{author}', [AuthorController::class, 'show']);
+    Route::post('authors', [AuthorController::class, 'store']);
+    Route::put('authors', [AuthorController::class, 'update']);
 });
 
 Route::group(['middleware' => 'guest:api'], function () {

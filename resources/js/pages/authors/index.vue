@@ -36,7 +36,7 @@ export default {
           action: (row, index) => {
             this.$router.push({
               name: "authors.edit",
-              params: { book: row.id },
+              params: { author: row.id },
             });
           },
         },
