@@ -11,4 +11,4 @@
 - `php artisan migrate:fresh --seed`
 - `npm install`
 - `npm run dev`
-- Go to localhost:3000
+- Go to the localhost / valet link that you have set up
