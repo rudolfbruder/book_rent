@@ -16,6 +16,7 @@
 
 <script>
 import axios from "axios";
+import Vue from "vue";
 require("bootstrap-vue-datatable");
 export default {
   data() {
@@ -41,7 +42,21 @@ export default {
           color: "info",
           class: "ml-2",
           action: (row, index) => {
-            alert("asdasd");
+            axios.put(`/api/books/${row.id}/toggle-status`).then(({ data }) => {
+              Vue.set(this.books, index, data.data);
+              alert("Book borrowed status toggled!");
+            });
+          },
+        },
+        {
+          text: "Delete",
+          color: "danger",
+          class: "ml-2",
+          action: (row, index) => {
+            axios.delete(`/api/books/${row.id}`).then(() => {
+              Vue.delete(this.books, index);
+              alert("Book deleted successfully!");
+            });
           },
         },
       ],
