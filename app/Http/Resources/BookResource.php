@@ -19,7 +19,7 @@ class BookResource extends JsonResource
             'title' => $this->title,
             'author' => $this->author->name,
             'author_id' => $this->author->id,
-            'is_borrowed' => $this->is_borrowed
+            'is_borrowed' => $this->is_borrowed ? 'Borrowed' : "Free"
         ];
     }
 }

@@ -32,17 +32,20 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::patch('settings/profile', [ProfileController::class, 'update']);
     Route::patch('settings/password', [PasswordController::class, 'update']);
 
+    //I dont like resource routes :)
     Route::get('books', [BookController::class, 'index']);
     Route::post('books', [BookController::class, 'store']);
     Route::put('books/{book}', [BookController::class, 'update']);
     Route::put('books/{book}/toggle-status', [BookController::class, 'toggleBorrowed']);
     Route::get('books/{book}', [BookController::class, 'show']);
+    Route::delete('books/{book}', [BookController::class, 'destroy']);
 
     Route::get('authors-for-select', [AuthorController::class, 'indexForSelect']);
     Route::get('authors', [AuthorController::class, 'index']);
     Route::get('authors/{author}', [AuthorController::class, 'show']);
     Route::post('authors', [AuthorController::class, 'store']);
     Route::put('authors', [AuthorController::class, 'update']);
+    Route::delete('authors/{author}', [AuthorController::class, 'destroy']);
 });
 
 Route::group(['middleware' => 'guest:api'], function () {

@@ -95,7 +95,8 @@ export default {
         this.form.title = data.data.title;
         this.form.id = data.data.id;
         this.form.author_id = data.data.author_id;
-        this.form.is_borrowed = data.data.is_borrowed;
+        var status = data.data.is_borrowed == "Borrowed" ? 1 : 0;
+        this.form.is_borrowed = status;
       });
     },
     submit() {

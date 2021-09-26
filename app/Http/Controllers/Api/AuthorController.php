@@ -31,6 +31,8 @@ class AuthorController extends Controller
     {
         $author = Author::create($request->validated());
 
+        //Here could be an event for example also on the update endpoints
+
         return response()->json(['author' => new AuthorResource($author)], 201);
     }
 
@@ -39,5 +41,12 @@ class AuthorController extends Controller
         $author->update($request->validated());
 
         return response()->json(['author' => new AuthorResource($author)], 201);
+    }
+
+    public function destroy(Author $author)
+    {
+        $author->delete();
+
+        return response(null, 204);
     }
 }
