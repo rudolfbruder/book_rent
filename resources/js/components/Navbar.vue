@@ -21,7 +21,7 @@
         <ul class="navbar-nav">
           <locale-dropdown />
         </ul>
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto" v-if="user">
           <li class="nav-item">
             <router-link :to="{ name: 'books.index' }" class="nav-link">
               Books

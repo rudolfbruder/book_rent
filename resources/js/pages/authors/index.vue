@@ -1,5 +1,10 @@
 <template>
   <div>
+    <div class="mb-2">
+      <router-link to="/authors/create" class="btn btn-success"
+        >Create</router-link
+      >
+    </div>
     <datatable
       :data="authors"
       :columns="headers"
@@ -11,6 +16,7 @@
 
 <script>
 import axios from "axios";
+import Vue from "vue";
 require("bootstrap-vue-datatable");
 export default {
   data() {
@@ -31,7 +37,18 @@ export default {
           action: (row, index) => {
             this.$router.push({
               name: "authors.edit",
-              params: { book: row.id },
+              params: { author: row.id },
+            });
+          },
+        },
+        {
+          text: "Delete",
+          color: "danger",
+          class: "ml-2",
+          action: (row, index) => {
+            axios.delete(`/api/authors/${row.id}`).then(() => {
+              Vue.delete(this.authors, index);
+              alert("Author deleted successfully!");
             });
           },
         },

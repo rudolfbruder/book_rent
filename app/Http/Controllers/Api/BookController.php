@@ -69,6 +69,14 @@ class BookController extends Controller
 
         $book->save();
 
+        return new BookResource($book);
         return response()->json([], 202);
+    }
+
+    public function destroy(Book $book)
+    {
+        $book->delete();
+
+        return response(null, 204);
     }
 }
